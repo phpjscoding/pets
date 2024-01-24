@@ -19,7 +19,12 @@ import Header from './comps/Header'
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: cssBundleHref },
   { rel: "stylesheet", href: bootstrap },
-  { rel: "stylesheet", href: styles }
+  { rel: "stylesheet", href: styles },
+  {
+    rel: "icon",
+    href: "assets/waggy.png"
+
+  },
 
 ];
 
@@ -106,50 +111,3 @@ export default function App() {
 }
 
 
-
-// {
-//   "node": {
-//       "id": "gid://shopify/Product/7218891685999",
-//       "title": "Wholesale Preium Pet Beds & Accessories 59x46cm Non-Skid Bottom Surface Mattress Dog Bed for Small Dog",
-//       "handle": "wholesale-preium-pet-beds-accessories-59x46cm-non-skid-bottom-surface-mattress-dog-bed-for-small-dog",
-//       "priceRange": {
-//           "minVariantPrice": {
-//               "amount": "380.25"
-//           }
-//       },
-//       "images": {
-//           "edges": [
-//               {
-//                   "node": {
-//                       "originalSrc": "https://cdn.shopify.com/s/files/1/0563/6528/5487/products/H736cf64836b54ac49aeda028d52434a6u.webp?v=1705663745",
-//                       "altText": "H736cf64836b54ac49aeda028d52434a6u.jpg"
-//                   }
-//               },
-//               {
-//                   "node": {
-//                       "originalSrc": "https://cdn.shopify.com/s/files/1/0563/6528/5487/products/H76889c33edee45919c0496f255bbbad1w.webp?v=1705663745",
-//                       "altText": "H76889c33edee45919c0496f255bbbad1w.jpg"
-//                   }
-//               },
-//               {
-//                   "node": {
-//                       "originalSrc": "https://cdn.shopify.com/s/files/1/0563/6528/5487/products/Hf2ade87e6e234acab6f22d4c203ea820k.webp?v=1705663745",
-//                       "altText": "Hf2ade87e6e234acab6f22d4c203ea820k.jpg"
-//                   }
-//               },
-//               {
-//                   "node": {
-//                       "originalSrc": "https://cdn.shopify.com/s/files/1/0563/6528/5487/products/H29bd1c9e562f43c8bc1d3cb103bbebadK.webp?v=1705663745",
-//                       "altText": "H29bd1c9e562f43c8bc1d3cb103bbebadK.jpg"
-//                   }
-//               },
-//               {
-//                   "node": {
-//                       "originalSrc": "https://cdn.shopify.com/s/files/1/0563/6528/5487/products/H25b23226149247d3a0977e3aa183e016E.webp?v=1705663745",
-//                       "altText": "H25b23226149247d3a0977e3aa183e016E.jpg"
-//                   }
-//               }
-//           ]
-//       }
-//   }
-// }

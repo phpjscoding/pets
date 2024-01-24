@@ -1,11 +1,12 @@
 import type { MetaFunction } from "@remix-run/node";
 import CollectionBanner from "./../comps/CollectionBanner.js";
-import app_config from "remix.config.js"
 import { useLoaderData } from "@remix-run/react";
 import HeroSlides from "../comps/HeroSlides";
+import ProductCardCarousel from "./../comps/ProductCardCarousel.js";
+
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
+    { title: "Waggy Pet Shop" },
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
@@ -67,17 +68,20 @@ export const loader = async () => {
 
 
 }
+
+
 export default function Index() {
   const data = useLoaderData();
   const obj = { data }
   const products = obj.data.data.products.edges
   return (
     <div>
-      <h2> {app_config.data.name} </h2>
+
       <HeroSlides />
       <CollectionBanner />
+      <ProductCardCarousel />
 
-      <ul className="products-grid">
+      {/* <ul className="products-grid">
         {products.map(product => <li className="product-card" key={product.id}>
           <h2> {product.node.title}</h2>
           <div className="first-img">
@@ -98,7 +102,7 @@ export default function Index() {
 
           }
         </li>)}
-      </ul>
+      </ul> */}
 
 
     </div>
