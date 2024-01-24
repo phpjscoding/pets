@@ -1,4 +1,5 @@
-# Welcome to Remix!
+# Welcome to Waggy pet shop 
+## This shop is being built using Remix and Shopify Graphql
 
 - [Remix Docs](https://remix.run/docs)
 
