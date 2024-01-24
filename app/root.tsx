@@ -63,7 +63,7 @@ export const loader = async () => {
     endpoint: URL,
     method: "POST",
     headers: {
-      "X-Shopify-Storefront-Access-Token": "dff9d9dffa5f4b9d33fb9cf174c2fbd9",
+      "X-Shopify-Storefront-Access-Token": process.env.SHOPIFY_STOREFRONT_API_TOKEN,
       "Accept": "application/json",
       "Content-Type": "application/json",
     },
