@@ -11,16 +11,27 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@app-config/main": "^2.8.7",
+    "@iconify-icon/react": "^1.0.8",
     "@remix-run/css-bundle": "^2.5.0",
     "@remix-run/node": "^2.5.0",
     "@remix-run/react": "^2.5.0",
     "@remix-run/serve": "^2.5.0",
+    "@shopify/shopify-api": "^9.0.2",
+    "@shopify/shopify-app-remix": "^2.3.0",
+    "@shopify/shopify-app-session-storage-memory": "^2.0.3",
     "isbot": "^4.1.0",
+    "mysql2": "^3.7.1",
+    "mysqlconnector": "^2.0.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-slick": "^0.29.0",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.5.0",
+    "@types/node": "^20.11.5",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
