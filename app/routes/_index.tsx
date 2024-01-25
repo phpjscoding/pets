@@ -2,24 +2,26 @@ import type { MetaFunction } from "@remix-run/node";
 import CollectionBanner from "./../comps/CollectionBanner.js";
 import { useLoaderData } from "@remix-run/react";
 import HeroSlides from "../comps/HeroSlides";
+import app_config from 'remix.config.js'
 import ProductCardCarousel from "./../comps/ProductCardCarousel.js";
-
+import fetch_options from "../snippets/fetch_options.js"
 export const meta: MetaFunction = () => {
   return [
     { title: "Waggy Pet Shop" },
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
+
 export const loader = async () => {
 
 
   // anywhere in your app, after loadConfig is complete and resolved
   // --------------------
 
-  const domain = "hydrogen-backend.myshopify.com"
-  //const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_ACCESSTOKEN
+  //const domain = "hydrogen-backend.myshopify.com"
+  // https://hydrogen-backend.myshopify.com/api/2024-01/graphql.json
 
-  const URL = `https://${domain}/api/2024-01/graphql.json`
+  const URL = app_config.data.gql_store_url;
   const query = `{
     products(first: 25) {
       edges {
@@ -45,16 +47,7 @@ export const loader = async () => {
     }
   }`
 
-  const options = {
-    endpoint: URL,
-    method: "POST",
-    headers: {
-      "X-Shopify-Storefront-Access-Token": "dff9d9dffa5f4b9d33fb9cf174c2fbd9",
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query })
-  }
+  const options = fetch_options(query)
   try {
     const data = await fetch(URL, options).then(response => {
       return response.json()

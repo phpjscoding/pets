@@ -1,8 +1,3 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
-import bootstrap from './../public/assets/bootstrap.css'
-import styles from './styles.css'
-import '@shopify/shopify-api/adapters/web-api';
 import {
   Links,
   LiveReload,
@@ -12,10 +7,18 @@ import {
   ScrollRestoration
 
 } from "@remix-run/react";
-// import swpercss from 'swiper/css';
-
-
+import { cssBundleHref } from "@remix-run/css-bundle";
+import type { LinksFunction } from "@remix-run/node";
+import bootstrap from './../public/assets/bootstrap.css'
+import styles from './styles.css'
+import '@shopify/shopify-api/adapters/web-api';
+import fetch_options from "./snippets/fetch_options.js"
+import app_config from "remix.config.js"
 import Header from './comps/Header'
+
+
+
+
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: cssBundleHref },
   { rel: "stylesheet", href: bootstrap },
@@ -30,15 +33,7 @@ export const links: LinksFunction = () => [
 
 
 export const loader = async () => {
-
-
-  // anywhere in your app, after loadConfig is complete and resolved
-  // --------------------
-
-  const domain = "hydrogen-backend.myshopify.com"
-  //const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_ACCESSTOKEN
-
-  const URL = `https://${domain}/api/2024-01/graphql.json`
+  const URL = app_config.data.gql_store_url
   const query = `{
     products(first: 25) {
       edges {
@@ -64,16 +59,8 @@ export const loader = async () => {
     }
   }`
 
-  const options = {
-    endpoint: URL,
-    method: "POST",
-    headers: {
-      "X-Shopify-Storefront-Access-Token": process.env.SHOPIFY_STOREFRONT_API_TOKEN,
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query })
-  }
+  const options = fetch_options(query)
+
   try {
     const data = await fetch(URL, options).then(response => {
       return response.json()
@@ -83,9 +70,6 @@ export const loader = async () => {
   } catch (error) {
     throw new Error("Products not fetched")
   }
-
-
-
 }
 
 

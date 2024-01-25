@@ -4,6 +4,7 @@ export default {
   ignoredRouteFiles: ["**/.*"],
   data:{
     name:"remix ap config",
+    gql_store_url:"https://hydrogen-backend.myshopify.com/api/2024-01/graphql.json",
     mainMenu:[
       {
         label:"Home",
